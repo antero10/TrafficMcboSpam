@@ -19,7 +19,7 @@ class trafficMcbo:
         max_id  = None
         author = None
         while goal > 0:
-            tweets = self.api.user_timeline('trafficMcbo',count=200,max_id = max_id,wait_on_rate_limit_notify=True)
+            tweets = self.api.user_timeline('trafficMcbo',count=200,max_id = max_id,wait_on_rate_limit_notify=True,)
             for tweet in tweets:
                 self.tweetModel.save(tweet)
             max_id = tweets[-1].id
@@ -28,11 +28,6 @@ class trafficMcbo:
         print 'Finish!...'
             
         
-        
-    
-    def saveTweet(self,tweet):
-
-        self.tweet.save(tweet)
 
         
 
