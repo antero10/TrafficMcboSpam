@@ -2,7 +2,7 @@ import tweepy
 import json
 from models.tweet import TweetModel
 class trafficMcbo:
-    """docstring for trafficMcbo"""
+    """ETL for trafficMcbo Twitter Account"""
     def __init__(self):
         self.consumer_key = 'FOEVRW1yTdOarEftWNt03TMcl'
         self.consumer_secret = 'O0qYWqG5rvfjbG9rZdSH3BspcYL2deSaccnIbMuVbykcQGoKRI'
@@ -14,10 +14,8 @@ class trafficMcbo:
         self.tweetModel = TweetModel()
         
     def initRecolector(self):
-
         goal = round(5000/200)
         max_id  = None
-        author = None
         while goal > 0:
             tweets = self.api.user_timeline('trafficMcbo',count=200,max_id = max_id)
             for tweet in tweets:
@@ -26,19 +24,6 @@ class trafficMcbo:
             goal = goal - 1
             print max_id
         print 'Finish!...'
-            
-        
-
-        
-
-    
-
 
 traffic = trafficMcbo()
-
 traffic.initRecolector()
-        
-
-
-
-
