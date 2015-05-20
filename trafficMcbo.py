@@ -22,7 +22,6 @@ class trafficMcbo:
                 self.tweetModel.save(tweet)
             max_id = tweets[-1].id
             goal = goal - 1
-            print max_id
         print 'Finish!...'
 
 traffic = trafficMcbo()
