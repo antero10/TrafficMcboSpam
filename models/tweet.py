@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import json
 class TweetModel:
-	"""docstring for Tweet"""
+	"""Model for Tweet"""
 	def __init__(self):
 		self.client = MongoClient('localhost', 27017)
 		self.db = self.client.trafficMcbo
