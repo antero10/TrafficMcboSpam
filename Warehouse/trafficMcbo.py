@@ -12,15 +12,16 @@ class trafficMcbo:
         self.auth.set_access_token(self.access_token, self.access_token_secret)
         self.api = tweepy.API(self.auth,wait_on_rate_limit=True)
         self.tweetModel = TweetModel()
-        
+
     def initRecolector(self):
         goal = round(5000/200)
         max_id  = None
         while goal > 0:
-            tweets = self.api.user_timeline('trafficMcbo',count=200,max_id = max_id)
-            for tweet in tweets:
-                self.tweetModel.save(tweet)
-            max_id = tweets[-1].id
+            statuses = self.api.user_timeline(screen_name='trafficMcbo',count=200,max_id = max_id)
+            for status in statuses:
+                print status.text
+                self.tweetModel.save(status)
+            max_id = statuses[-1].id
             goal = goal - 1
         print 'Finish!...'
 
